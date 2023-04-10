@@ -1,14 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./src/index.js"></script>
-    <link rel="stylesheet" href="./style/index.css">
-</head>
-<body>
     
-</body>
+    <link rel="stylesheet" href="./style/index.css" />
+    <script src="./src/index.js"></script>
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
+    <script src="./src/tooltip.js"></script>
+    
+    <!-- Charts -->
+    <script src="./src/mosquitos.js"></script>
+
+  </head>
+  <body onload="main()">
+    <main>
+      <div id="navbar">
+        <div id="logo">
+          <img id="logo_img" src="./assets/logo.svg" alt="logo" />
+          <div id="isotipo">
+            <span id="iso_upper" class="logo_text">SISTEMA UNICO DE</span>
+            <span id="iso_lower" class="logo_text">ATENCION CIUDADANA</span>
+          </div>
+        </div>
+        <div id="nav_items" class="">
+          <span><a href="#hero_section">Home</a></span>
+          <span><a href="#info_section">Datos</a></span>
+          <span><a href="#nota1">Notas</a></span>
+        </div>
+      </div>
+      <div id="hero_section" class="row">
+        <div id="hero_text" class="">
+          <h1>¿Qué es el SUACI?</h1>
+          <p>
+            El Sistema Único de Atención Ciudadana (SUACI) es un sistema de
+            gestión de quejas y denuncias que permite a los ciudadanos realizar
+            consultas, presentar quejas y denuncias, y realizar seguimiento a
+            las mismas, a través de un canal único y centralizado.
+          </p>
+          <button
+            class="round_btn"
+            onclick="window.location.href = 'https://gestioncolaborativa.buenosaires.gob.ar/prestaciones'"
+          >
+            Mas información
+          </button>
+        </div>
+        <!-- <div id="hero_image" class="">
+                <img src="./assets/logo.svg" alt="hero_image">
+            </div> -->
+      </div>
+      <div id="info_section" class="row">
+        <div id="hero_text" class="">
+          <h1>Datos abiertos</h1>
+          <p>
+            Los datos están disponibles en formato CSV. Corresponden a los
+            contactos realizados a través de línea 147 al Sistema Único de
+            Atención Ciudadana (SUACI) de la Ciudad de Buenos Aires en el año
+            2021. Pueden optar por elegir uno o más de los seis conjuntos de
+            datos ofrecidos para realizar sus visualizaciones o, para quienes
+            quieran ampliar la exploración, realizar sus propios cortes a partir
+            del archivo con todos los contactos realizados en el 2021, que se
+            encuentran disponibles en el mismo repositorio.
+          </p>
+          <button
+            class="round_btn"
+            onclick="window.location.href = 'https://github.com/visualizacion-de-datos-utdt/vd_linea147'"
+          >
+            Mas información
+          </button>
+        </div>
+      </div>
+      <!-- <div id="charts_row" class="row">
+        <div id="chart_gallery">
+            <div id="card_chart1" class="chart_card">
+                <div class="card_bottom">
+                    <h2>Gráfico 1</h2>
+                    <p>Descripción del gráfico</p>
+                </div>
+            </div>
+            <div id="card_chart1" class="chart_card">
+                <div class="card_bottom">
+                    <h2>Gráfico 1</h2>
+                    <p>Descripción del gráfico</p>
+                </div>
+            </div>
+            <div id="card_chart1" class="chart_card">
+                <div class="card_bottom">
+                    <h2>Gráfico 1</h2>
+                    <p>Descripción del gráfico</p>
+                </div>
+            </div>
+        </div>
+      </div>  -->   
+      <div id="nota1" class="nota">
+        <h1>Mosquitos por barrio</h1>
+        <p> 
+        En la ciudad de Buenos Aires, la cantidad de demandas por presencia de mosquitos en diferentes barrios ha aumentado
+        significativamente en los últimos meses. Según los datos recopilados del Sistema Único de Asistencia Ciudadana (SUACI), se han registrado un número récord de solicitudes de
+        intervención en distintas zonas de la ciudad.
+
+        <br><br>
+
+        Según las autoridades locales, el aumento en la presencia de mosquitos se debe en gran parte a las condiciones
+        climáticas y ambientales, así como a la falta de mantenimiento en algunos espacios públicos y privados. Para abordar
+        este problema, se han implementado medidas como la fumigación en las áreas más afectadas y la limpieza y desinfección de
+        áreas verdes y otros espacios públicos.
+
+        <br><br>
+
+        No obstante, algunos expertos han señalado que también es necesario involucrar a la comunidad en la prevención y control
+        de la proliferación de mosquitos. Esto incluye medidas como evitar el acumulamiento de agua en recipientes al aire
+        libre, utilizar repelentes y mosquiteros en las viviendas y adoptar prácticas de higiene adecuadas para evitar la
+        acumulación de basura y otros residuos.
+
+        </p>
+
+        <div id="chart_container">
+            <div id="chart1" class="chart"></div>
+            <span id="chart1_legend" class="chart_legend">
+                Gráfico 1: Mosquitos por barrio
+            </span>
+        </div>
+        <p>
+            Entre los barrios más afectados se encuentran Villa Crespo, San Telmo y Barracas, donde los vecinos han reportado
+            una
+            gran cantidad de mosquitos y otros insectos en sus hogares y áreas comunes. En algunos casos, los residentes han
+            señalado que la situación se ha vuelto insoportable, ya que los mosquitos les impiden dormir y disfrutar de sus
+            espacios
+            al aire libre.
+        
+            <br><br>
+        
+            En conclusión, el aumento de las demandas por presencia de mosquitos en distintos barrios de la ciudad de Buenos
+            Aires
+            es un problema que requiere de una acción conjunta por parte de las autoridades y la comunidad en general. Con
+            medidas
+            preventivas y de control adecuadas, es posible mitigar la presencia de mosquitos y mejorar la calidad de vida de los
+            ciudadanos.
+        </p>
+    </div>
+    </main>
+    <footer>
+      <div id="footer_container">
+        <div id="footer_text" class="">
+          <h1>Visualización de Datos</h1>
+          <p>
+            Examen Parcial de la materia Visualización de Datos de la carrera
+            Licenciatura en Tecnología Digital de la Universidad
+            Torcuato Di Tella.
+          </p>
+        </div>
+        <div id="footer_contents">
+            <div id="footer_integrantes">
+                <h1>Integrantes</h1>
+                <p>Luca Mazzarello</p>
+                <p>Ignacio Pardo</p>
+            </div>
+            <div id="footer_chart_links">
+                <h1>Charts</h1>
+                <a class="footer_chart_link" href="#" target="_blank">Histograma de misiones por año</a>
+                <a class="footer_chart_link" href="#" target="_blank">Heatmap de horas de misiones por año por país</a>
+                <a class="footer_chart_link" href="#" target="_blank">Gráfico de barras facetado de cantidad de astronautas por país por género</a>
+                <a class="footer_chart_link" href="#" target="_blank">Gráfico de líneas de cantidad de astronautas por ocupación por año</a>
+                <a class="footer_chart_link" href="#" target="_blank">Gráfico de árbol de cantidad de astronautas por país por año</a>
+            </div>
+            <div id="footer_links">
+                <div id="footer_icons">
+                    <a class="icon_ref" href="https://www.utdt.edu/">
+                        <img class="icon" src="assets/icons/utdt.svg" alt="UTDT" />
+                    </a>
+                    <a class="icon_ref" href="https://github.com/IgnacioPardo/vd_s1_tp2_mazzarello_pardo">
+                        <img class="icon" src="assets/icons/gh.svg" alt="GitHub" />
+                    </a>
+                </div>
+                <!-- <a href="https://observablehq.com/">Observable</a> -->
+            </div>
+        </div>
+    </div>
+    </footer>
+
+  </body>
 </html>
