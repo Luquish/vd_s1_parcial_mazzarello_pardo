@@ -18,4 +18,6 @@ function main() {
   }
 
   plotMapa(yearsData, 2022, "#chart_mapa");
+
+  plotLines(yearsData, 2022, "#chart_lines");
 }

@@ -1,4 +1,5 @@
 let slider = null;
+let mapaGeoJson = null;
 
 function setBubble(range, bubble) {
     const val = range.value;
@@ -14,7 +15,7 @@ function setBubble(range, bubble) {
 function plotMapa(yearsData, year, divId) {
 
     var chart = document.querySelector(divId);
-    console.log(chart)
+    //console.log(chart)
     if (slider == null) {
         slider = document.createElement("input");
         slider.id = `slider-${divId}`;
@@ -35,7 +36,7 @@ function plotMapa(yearsData, year, divId) {
             var newYear = this.value;
             plotMapa(yearsData, newYear, divId);
             document.querySelector(".chart_legend").innerHTML = `
-                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${this.newYear}</p>
+                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${newYear}</p>
                 <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
             `;
 
@@ -50,32 +51,46 @@ function plotMapa(yearsData, year, divId) {
 
     // append year slider to div ondocumentready
 
-    const mapaFetch = d3.json('./data/barrios-caba.geojson')
+    if (mapaGeoJson == null) {
+        mapaGeoJson = d3.json('./data/barrios-caba.geojson');
+    }
 
-    years = Object.keys(yearsData)
+    var years = Object.keys(yearsData)
+    var yearIndex = years.indexOf(year.toString())
 
-    console.log([...Object.values(yearsData)])
+    //console.log([...Object.values(yearsData)])
 
-    Promise.all([mapaFetch, ...Object.values(yearsData)]).then((objs) => {
+    Promise.all([mapaGeoJson, ...Object.values(yearsData)]).then((objs) => {
 
         barrios = objs[0]
 
         // Get index of year in years array
-
-        var yearIndex = years.indexOf(year.toString())
-        console.log(yearIndex)
+        //console.log(yearIndex)
         // Get data for year
 
         var data = objs[yearIndex + 1]
 
-        console.log(data)
+        //console.log(data)
+
+        // Count ocurrencies of 'domicilio_barrio' in data
+
+        var barriosDenuncias = data.reduce((acc, cur) => {
+            barrio = cur.domicilio_barrio.toUpperCase()
+            if (acc[barrio] == undefined) {
+                acc[barrio] = 1;
+            } else {
+                acc[barrio] += 1;
+            }
+            return acc;
+        }, {})
+        //console.log({barriosDenuncias})
 
         /* Mapa Coroplético */
-        let chartMap = Plot.plot({
+        let chartMap = addTooltips(Plot.plot({
             // https://github.com/observablehq/plot#projection-options
             projection: {
-            type: 'mercator',
-            domain: barrios, // Objeto GeoJson a encuadrar
+                type: 'mercator',
+                domain: barrios, // Objeto GeoJson a encuadrar
             },
             color: {
                 type: "linear",
@@ -86,10 +101,10 @@ function plotMapa(yearsData, year, divId) {
             Plot.density(data, { x: 'lon', y: 'lat', fill: 'density', bandwidth: 15, thresholds: 30 }),
             Plot.geo(barrios, {
                 stroke: 'gray',
-                title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
+                title: d => `${d.properties.BARRIO}` + (barriosDenuncias[d.properties.BARRIO] ? `\n${barriosDenuncias[d.properties.BARRIO]}` : ''),
             }),
             ],
-        })
+        }));
 
         /* Agregamos al DOM la visualización chartMap */
         d3.select(divId).append(() => chartMap)
