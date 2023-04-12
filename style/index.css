@@ -59,6 +59,7 @@ html, body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    width: 400px;
 }
 
 /* a reset */
@@ -223,6 +224,53 @@ a {
 .nota p{
     width: 50%;
     margin: 50px;
+}
+
+
+.nota .left{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.author {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.author_image{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.author_info{
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    
+}
+
+.author_name{
+    font-size: 20px;
+    font-weight: 700;
+    color: #FF8D3A;
+}
+
+.author_affiliation{
+    font-size: 16px;
+    font-weight: 400;
+    color: #5e5e5e;
 }
 
 .chart{
