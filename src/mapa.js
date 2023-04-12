@@ -11,7 +11,7 @@ function setBubble(range, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.8}px))`;
 }
 
-function plotMapa(dataPromise, divId) {
+function plotMapa(yearsData, year, divId) {
 
     var chart = document.querySelector(divId);
     console.log(chart)
@@ -32,12 +32,10 @@ function plotMapa(dataPromise, divId) {
 
         slider.oninput = function () {
             chart.innerHTML = "";
-            var year = this.value;
-            const yearData = d3.dsv(';', `./data/mosquitos-${year}.csv`, d3.autoType);
-            plotMapa(yearData, divId);
-            console.log(this.value)
+            var newYear = this.value;
+            plotMapa(yearsData, newYear, divId);
             document.querySelector(".chart_legend").innerHTML = `
-                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${this.value}</p>
+                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${this.newYear}</p>
                 <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
             `;
 
@@ -54,7 +52,22 @@ function plotMapa(dataPromise, divId) {
 
     const mapaFetch = d3.json('./data/barrios-caba.geojson')
 
-    Promise.all([mapaFetch, dataPromise]).then(([barrios, data]) => {
+    years = Object.keys(yearsData)
+
+    console.log([...Object.values(yearsData)])
+
+    Promise.all([mapaFetch, ...Object.values(yearsData)]).then((objs) => {
+
+        barrios = objs[0]
+
+        // Get index of year in years array
+
+        var yearIndex = years.indexOf(year.toString())
+        console.log(yearIndex)
+        // Get data for year
+
+        var data = objs[yearIndex + 1]
+
         console.log(data)
 
         /* Mapa Coroplético */
