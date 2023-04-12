@@ -21,7 +21,7 @@
     <script src="./src/mapa.js"></script>
 
   </head>
-  <body onload="main()">
+  <body>
     <main>
       <div id="navbar">
         <div id="logo">
@@ -134,11 +134,13 @@
 
         </p>
 
-        <div id="chart_container">
+        <div id="chart1_container" class="chart_container">
             <div id="chart1" class="chart"></div>
             <span id="chart1_legend" class="chart_legend">
-                Gráfico 1: Mosquitos por barrio
+                <p class="chart_desc">Mosquitos por barrio | Año 2022</p>
+                <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
             </span>
+            <div id="chart1_extra" style="width:100%"></div>
         </div>
         <p>
             Entre los barrios más afectados se encuentran Villa Crespo, San Telmo y Barracas, donde los vecinos han reportado

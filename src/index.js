@@ -1,7 +1,9 @@
 
+document.addEventListener("DOMContentLoaded", main);
+
 function main() {
-  const data = d3.csv("https://ignaciopardo.github.io/vd_s1_tp2_mazzarello_pardo/vd_astronautas/astronautas.csv", d3.autoType);
-  console.log(data);
   //plotMosquitos(data, "#chart1");
-  plotMapa(data, "#chart1");
+  var year = 2022;
+  const yearData = d3.dsv(';', `./data/mosquitos-${year}.csv`, d3.autoType); 
+  plotMapa(yearData, "#chart1");
 }
