@@ -31,7 +31,7 @@ function plotLines(yearsData, year, divId) {
             })
         }
 
-        console.log(data)
+        //console.log(data)
         
         let chart = addTooltips(Plot.plot({
             marks: [

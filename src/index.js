@@ -9,6 +9,8 @@ function main() {
   const data_2019 = d3.dsv(';', `./data/mosquitos-2019.csv`, d3.autoType);
   const data_2018 = d3.dsv(';', `./data/mosquitos-2018.csv`, d3.autoType);
 
+  const bes_345 = d3.dsv(';', `./data/BES-345.csv`, d3.autoType);
+
   yearsData = {
     2022: data_2022,
     2021: data_2021,
@@ -20,4 +22,6 @@ function main() {
   plotMapa(yearsData, 2022, "#chart_mapa");
 
   plotLines(yearsData, 2022, "#chart_lines");
+
+  plotBars(bes_345, data_2022, "#chart_3");
 }
