@@ -1,5 +1,16 @@
 let slider = null;
 
+function setBubble(range, bubble) {
+    const val = range.value;
+    const min = range.min ? range.min : 0;
+    const max = range.max ? range.max : 100;
+    const newVal = Number(((val - min) * 100) / (max - min));
+    bubble.innerHTML = val;
+
+    // Sorta magic numbers based on size of the native UI thumb
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.8}px))`;
+}
+
 function plotMapa(dataPromise, divId) {
 
     var chart = document.querySelector(divId);
@@ -14,6 +25,11 @@ function plotMapa(dataPromise, divId) {
         slider.value = 2022;
         slider.step = 1;
         slider.style.width = "100%";
+
+        var bubble = document.createElement("output");
+        bubble.id = `bubble-${divId}`;
+        bubble.classList.add("slider_bubble");
+
         slider.oninput = function () {
             chart.innerHTML = "";
             var year = this.value;
@@ -21,12 +37,17 @@ function plotMapa(dataPromise, divId) {
             plotMapa(yearData, divId);
             console.log(this.value)
             document.querySelector(".chart_legend").innerHTML = `
-                <p class="chart_desc">Mosquitos por barrio | Año ${this.value}</p>
+                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${this.value}</p>
                 <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
             `;
+
+            setBubble(this, bubble);
             
         }
-        document.querySelector("#chart1_extra").appendChild(slider);
+        document.querySelector("#chart_mapa_extra").appendChild(bubble);
+        document.querySelector("#chart_mapa_extra").appendChild(slider);
+
+        setBubble(slider, bubble);
     }
 
     // append year slider to div ondocumentready

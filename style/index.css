@@ -287,6 +287,7 @@ a {
 }
 
 .chart_legend{
+    margin: 20px;
     color: #333;
     font-weight: 500;
     display: flex;
@@ -302,6 +303,28 @@ a {
     font-weight: 400;
     color: #5e5e5e;
     margin: 2px;
+}
+
+#chart_mapa{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    background: white;
+}
+
+#chart_mapa_extra{
+    margin-top: 20px;
+}
+
+.slider_bubble {
+    background: #FF8D3A;
+    color: white;
+    padding: 4px 12px;
+    position: relative;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #footer_container{
