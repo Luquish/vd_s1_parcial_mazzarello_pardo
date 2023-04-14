@@ -1,15 +1,17 @@
 
 document.addEventListener("DOMContentLoaded", main);
 
+const base_url = "https://luquish.github.io/vd_s1_parcial_mazzarello_pardo/"
+
 function main() {
   //plotMosquitos(data, "#chart1");
-  const data_2022 = d3.dsv(';', `./data/mosquitos-2022.csv`, d3.autoType); 
-  const data_2021 = d3.dsv(';', `./data/mosquitos-2021.csv`, d3.autoType);
-  const data_2020 = d3.dsv(';', `./data/mosquitos-2020.csv`, d3.autoType);
-  const data_2019 = d3.dsv(';', `./data/mosquitos-2019.csv`, d3.autoType);
-  const data_2018 = d3.dsv(';', `./data/mosquitos-2018.csv`, d3.autoType);
+  const data_2022 = d3.dsv(';', base_url + 'data/mosquitos-2022.csv', d3.autoType); 
+  const data_2021 = d3.dsv(';', base_url + 'data/mosquitos-2021.csv', d3.autoType);
+  const data_2020 = d3.dsv(';', base_url + 'data/mosquitos-2020.csv', d3.autoType);
+  const data_2019 = d3.dsv(';', base_url + 'data/mosquitos-2019.csv', d3.autoType);
+  const data_2018 = d3.dsv(';', base_url + 'data/mosquitos-2018.csv', d3.autoType);
 
-  const bes_345 = d3.dsv(';', `./data/BES-345.csv`, d3.autoType);
+  const bes_345 = d3.dsv(';', base_url + 'data/BES-345.csv', d3.autoType);
 
   yearsData = {
     2022: data_2022,
