@@ -13,6 +13,10 @@ function main() {
 
   const bes_345 = d3.dsv(';', base_url + 'data/BES-345.csv', d3.autoType);
 
+  data_2022.then((data) => {
+    console.log(data);
+  });
+
   yearsData = {
     2022: data_2022,
     2021: data_2021,
