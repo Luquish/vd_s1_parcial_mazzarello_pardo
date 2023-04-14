@@ -2,7 +2,7 @@ let slider = null;
 let mapaGeoJson = null;
 
 function setBubble(range, bubble) {
-    const val = range.value;
+    const val = Math.floor(range.value);
     const min = range.min ? range.min : 0;
     const max = range.max ? range.max : 100;
     const newVal = Number(((val - min) * 100) / (max - min));
@@ -12,19 +12,21 @@ function setBubble(range, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.8}px))`;
 }
 
-function plotMapa(yearsData, year, divId) {
+function plotMapa(yearsData, year, month=12, divId) {
 
+    console.log(year, month)
     var chart = document.querySelector(divId);
     //console.log(chart)
     if (slider == null) {
         slider = document.createElement("input");
-        slider.id = `slider-${divId}`;
+        const parentId = divId.replace("#", "");
+        slider.id = `slider-${parentId}`;
         slider.classList.add("chart_slider");
         slider.type = "range";
         slider.min = 2018;
-        slider.max = 2022;
-        slider.value = 2022;
-        slider.step = 1;
+        slider.max = 2023;
+        slider.value = 2023;
+        slider.step = 1/12;
         slider.style.width = "100%";
 
         var bubble = document.createElement("output");
@@ -33,8 +35,14 @@ function plotMapa(yearsData, year, divId) {
 
         slider.oninput = function () {
             chart.innerHTML = "";
-            var newYear = this.value;
-            plotMapa(yearsData, newYear, divId);
+
+            var newYear = Math.floor(this.value);
+            var newMonth = Math.round((this.value - newYear) * 12) + 1;
+
+            newMonth = newYear > 2022 ? 12 : newMonth;
+            newYear = newYear > 2022 ? 2022 : newYear;
+
+            plotMapa(yearsData, newYear, newMonth, divId);
             document.querySelector(".chart_legend").innerHTML = `
                 <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${newYear}</p>
                 <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
@@ -69,6 +77,22 @@ function plotMapa(yearsData, year, divId) {
         // Get data for year
 
         var data = objs[yearIndex + 1]
+
+        //join yearsData into one array
+
+        // var data = objs.slice(1).reduce((acc, cur) => {
+        //     return acc.concat(cur);
+        // }, [])
+
+        // acumulate monthly data for year til month
+
+        // each row has a 'periodo' field with format 'YYYYMM'
+
+        data = data.filter((row) => {
+            var month_ = row['periodo'] % 100;
+            var year_ = Math.floor(row['periodo'] / 100);
+            return month_ <= month;//&& year_ <= year;
+        })
 
         //console.log(data)
 

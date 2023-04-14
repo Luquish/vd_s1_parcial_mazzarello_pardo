@@ -87,10 +87,10 @@ function plotBars(bes, year2022, divId) {
             },
             y: {
                 label: 'Cantidad de denuncias',
+                labelOffset: 150,
             },
             color: {
                 type: 'categorical',
-                legend: true,
             },
         }),
             {

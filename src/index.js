@@ -19,7 +19,7 @@ function main() {
     2018: data_2018,
   }
 
-  plotMapa(yearsData, 2022, "#chart_mapa");
+  plotMapa(yearsData, 2022, 12, "#chart_mapa");
 
   plotLines(yearsData, 2022, "#chart_lines");
 
