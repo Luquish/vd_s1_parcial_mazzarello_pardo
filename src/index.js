@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", main);
 
-const base_url = "https://luquish.github.io/vd_s1_parcial_mazzarello_pardo/"
+const base_url = "https://media.githubusercontent.com/media/Luquish/vd_s1_parcial_mazzarello_pardo/main/"
 
 function main() {
   //plotMosquitos(data, "#chart1");
@@ -12,10 +12,6 @@ function main() {
   const data_2018 = d3.dsv(';', base_url + 'data/mosquitos-2018.csv', d3.autoType);
 
   const bes_345 = d3.dsv(';', base_url + 'data/BES-345.csv', d3.autoType);
-
-  data_2022.then((data) => {
-    console.log(data);
-  });
 
   yearsData = {
     2022: data_2022,
