@@ -1,11 +1,15 @@
 /* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-/* Import local font Compact Bold Italic */
+/* 
 @font-face {
     font-family: 'Compact';
-    src: url('https://luquish.github.io/vd_s1_parcial_mazzarello_pardo/assets/fonts/Compact-BoldItalic.ttf');
-}
+    src: url('../assets/fonts/Compact-BoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/Compact-BoldItalic.ttf') format('truetype');
+    
+} */
 
 
 html, body {
@@ -60,8 +64,13 @@ html, body {
 }
 
 #isotipo{
-    font-family: Compact;
+    /* font-family: Compact; */
+    /* font-style: italic; */
+    
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
     font-style: italic;
+
     font-size: 25px;
     color: white;
     text-decoration: none;
@@ -121,7 +130,7 @@ a {
 
     color: white;
     width: 50%;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -353,6 +362,27 @@ a {
     padding-left: 150px;
     padding-bottom: 20px;
 }
+
+
+#chart_circ{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    /* background-image: url(../assets/img/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+}
+
+#chart_center{
+}
+
+/* #chart_circ_svg{
+} */
 
 #footer_container{
 

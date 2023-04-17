@@ -134,7 +134,7 @@ function hover(tip, pos, text){
     .text((d) => d)
     .attr("y", (d, i) => (i - (text.length - 1)) * 15 - vertical_offset)
     .style("font-weight", (d, i) => (i === 0 ? "bold" : "normal"))
-    .style("fill", (d, i) => (i === 0 ? "black" : "black"));
+    .style("fill", (d, i) => (i === 0 ? "white" : "white"));
 
   const bbox = tip.node().getBBox();
 
@@ -145,8 +145,12 @@ function hover(tip, pos, text){
     .attr("x", bbox.x - side_padding)
     .attr("width", bbox.width + side_padding * 2)
     .attr("height", bbox.height + vertical_padding * 2)
-    .style("fill", "#f8f14e")
-    .style("stroke", "black")
+    .style("fill", "#FF8D3A")
+    .style("stroke", "white")
+    .style("color", "white")
+    .style("stroke-width", 1)
+    .attr("rx", 5)
+    .attr("ry", 5)
     .lower();
 }
 function id_generator(){
