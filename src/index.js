@@ -13,6 +13,8 @@ function main() {
 
   const bes_345 = d3.dsv(';', base_url + 'data/BES-345.csv', d3.autoType);
 
+  const barrio_counts_2022 = d3.dsv(',', 'data/barrio_counts_2022.csv', d3.autoType);
+
   yearsData = {
     2022: data_2022,
     2021: data_2021,
@@ -20,6 +22,8 @@ function main() {
     2019: data_2019,
     2018: data_2018,
   }
+
+  plotCircular(barrio_counts_2022, "#chart_circ")
 
   plotMapa(yearsData, 2022, 12, "#chart_mapa");
 

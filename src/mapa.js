@@ -109,12 +109,18 @@ function plotMapa(yearsData, year, month=12, divId) {
         }, {})
         //console.log({barriosDenuncias})
 
+        var minCount = Math.min(...Object.values(barriosDenuncias))
+        var maxCount = Math.max(...Object.values(barriosDenuncias))
+
         /* Mapa Coroplético */
         let chartMap = addTooltips(Plot.plot({
             // https://github.com/observablehq/plot#projection-options
             projection: {
                 type: 'mercator',
                 domain: barrios, // Objeto GeoJson a encuadrar
+            },
+            x: {
+                domain: [minCount, maxCount],
             },
             color: {
                 type: "linear",
@@ -125,10 +131,16 @@ function plotMapa(yearsData, year, month=12, divId) {
             Plot.density(data, { x: 'lon', y: 'lat', fill: 'density', bandwidth: 15, thresholds: 30 }),
             Plot.geo(barrios, {
                 stroke: 'gray',
+                fill: d => barriosDenuncias[d.properties.BARRIO] ? "rgba(255, 255, 0, 0.1)" : "rgba(255, 255, 0, 0.1)",
                 title: d => `${d.properties.BARRIO}` + (barriosDenuncias[d.properties.BARRIO] ? `\n${barriosDenuncias[d.properties.BARRIO]}` : ''),
             }),
             ],
-        }));
+        }),
+            hover_styles = {
+                fill: 'rgba(255, 255, 0, 0.5)',
+                stroke: 'black',
+            },
+        );
 
         /* Agregamos al DOM la visualización chartMap */
         d3.select(divId).append(() => chartMap)

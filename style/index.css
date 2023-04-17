@@ -130,7 +130,7 @@ a {
 
     color: white;
     width: 50%;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -362,6 +362,27 @@ a {
     padding-left: 150px;
     padding-bottom: 20px;
 }
+
+
+#chart_circ{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    /* background-image: url(../assets/img/fondo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+}
+
+#chart_center{
+}
+
+/* #chart_circ_svg{
+} */
 
 #footer_container{
 
