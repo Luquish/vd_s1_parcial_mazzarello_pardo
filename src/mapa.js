@@ -131,7 +131,7 @@ function plotMapa(yearsData, year, month=12, divId) {
             Plot.density(data, { x: 'lon', y: 'lat', fill: 'density', bandwidth: 15, thresholds: 30 }),
             Plot.geo(barrios, {
                 stroke: 'gray',
-                fill: d => barriosDenuncias[d.properties.BARRIO] ? "rgba(255, 255, 0, 0.1)" : "rgba(255, 255, 0, 0.1)",
+                fill: d => barriosDenuncias[d.properties.BARRIO] ? "rgba(255, 255, 0, 0.1)" : "rgba(255, 255    , 0, 0.1)",
                 title: d => `${d.properties.BARRIO}` + (barriosDenuncias[d.properties.BARRIO] ? `\n${barriosDenuncias[d.properties.BARRIO]}` : ''),
             }),
             ],

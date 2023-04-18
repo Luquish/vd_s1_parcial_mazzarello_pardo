@@ -13,7 +13,7 @@ function main() {
 
   const bes_345 = d3.dsv(';', base_url + 'data/BES-345.csv', d3.autoType);
 
-  const barrio_counts_2022 = d3.dsv(',', 'data/barrio_counts_2022.csv', d3.autoType);
+  const barrio_counts_2022 = d3.dsv(',', base_url + 'data/barrio_counts_2022.csv', d3.autoType);
 
   yearsData = {
     2022: data_2022,

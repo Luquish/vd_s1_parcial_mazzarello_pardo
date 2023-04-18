@@ -32,7 +32,7 @@ function plotCircular(dataPromise, divId) {
             .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
 
         // define count object that holds count for each barrio
-        console.log({data});
+        console.log(data);
 
         // var count = {};
 
