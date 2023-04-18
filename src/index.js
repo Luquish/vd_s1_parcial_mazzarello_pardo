@@ -27,7 +27,41 @@ function main() {
 
   plotMapa(yearsData, 2022, 12, "#chart_mapa");
 
-  plotLines(yearsData, 2022, "#chart_lines");
+  plotBars(bes_345, data_2021, "#chart_1");
 
-  plotBars(bes_345, data_2022, "#chart_3");
+  // plotLines(yearsData, 2022, "#chart_lines");
+
+  plotHorizontal(data_2022, "#chart_3");
+
+  const navbar = document.getElementById("navbar");
+  console.log(navbar, 1)
+  function hideNav() {
+    //document.getElementById("navbar").style.display = "none";
+    navbar.backgroundColor = "red";
+    console.log(navbar, 2)
+  }
+
+  function showNav() {
+    navbar.display = "block";
+    console.log(navbar, 3)
+  }
+
+  // Add intersection observer to Nota1 to hide navbar
+  const options = {
+    root: null, // relative to document viewport
+    rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+    threshold: 0.5 // visible amount of item shown in relation to root
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        showNav();
+      } else {
+        hideNav();
+      }
+    })
+  }, options)
+  const nota = document.querySelector("#nota1");
+  observer.observe(nota);
 }
