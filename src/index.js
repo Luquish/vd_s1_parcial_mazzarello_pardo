@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", main);
 
-const base_url = "https://media.githubusercontent.com/media/Luquish/vd_s1_parcial_mazzarello_pardo/main/"
+const base_url = ""
 
 function main() {
   //plotMosquitos(data, "#chart1");
