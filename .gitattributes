@@ -1,1 +1,6 @@
 data/suaci/** filter=lfs diff=lfs merge=lfs -text
+data/suaci/sistema-unico-de-atencion-ciudadana-2018.csv filter=lfs diff=lfs merge=lfs -text
+data/suaci/sistema-unico-de-atencion-ciudadana-2019.csv filter=lfs diff=lfs merge=lfs -text
+data/suaci/sistema-unico-de-atencion-ciudadana-2020.csv filter=lfs diff=lfs merge=lfs -text
+data/suaci/sistema-unico-de-atencion-ciudadana-2021.csv filter=lfs diff=lfs merge=lfs -text
+data/suaci/sistema-unico-de-atencion-ciudadana-2022.csv filter=lfs diff=lfs merge=lfs -text
