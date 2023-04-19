@@ -113,7 +113,7 @@ function plotCircular(dataPromise, divId) {
             .attr("count", count_sum)
             .attr("type", "circ")
 
-            
+        
 
         // add tooltip with the function addTooltips
 
@@ -143,7 +143,6 @@ function plotCircular(dataPromise, divId) {
 
                     if (this.getAttribute("type") == "circ") {
                         
-
                         var xpos = this.getBoundingClientRect().x;
                         var ypos = this.getBoundingClientRect().y;
                         
@@ -160,9 +159,12 @@ function plotCircular(dataPromise, divId) {
                         d3.select("#tooltip")
                             .style("left", (xpos) + "px")
                             .style("top", (ypos - 50) + "px")
+                            .style("z-index", 100)
                             .style("display", "inline-block")
                             .style("visibility", "visible")
                             .html((barrio) + "<br>" + (count));
+
+                        console.log(document.getElementById("tooltip").getBoundingClientRect().x, document.getElementById("tooltip").getBoundingClientRect().y);
                     }
 
                 })
