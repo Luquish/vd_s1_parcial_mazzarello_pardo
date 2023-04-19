@@ -73,6 +73,13 @@ function plotHorizontal(dataPromise, divId) {
       marks: [
         Plot.barX(data, Plot.groupY({x: "count"}, {y: "canal", sort: {y: "x", reverse: true}})),
       ],
+      x: {
+        label: 'Cantidad de denuncias',
+      },
+      y: {
+        label: 'Canales',
+        labelOffset: 100,
+      },
     });
 
     // add id to chart
