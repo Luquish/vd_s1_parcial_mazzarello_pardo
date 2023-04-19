@@ -6,7 +6,16 @@ function setBubble(range, bubble) {
     const min = range.min ? range.min : 0;
     const max = range.max ? range.max : 100;
     const newVal = Number(((val - min) * 100) / (max - min));
-    bubble.innerHTML = val;
+
+    var newYear = Math.floor(range.value);
+    var newMonth = Math.round((range.value - newYear) * 12) + 1;
+
+    newMonth = newYear > 2022 ? 12 : newMonth;
+    newYear = newYear > 2022 ? 2022 : newYear;
+
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+    bubble.innerHTML = `${months[newMonth - 1]} - ${newYear}`;
 
     // Sorta magic numbers based on size of the native UI thumb
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.8}px))`;
@@ -42,13 +51,20 @@ function plotMapa(yearsData, year, month=12, divId) {
             newMonth = newYear > 2022 ? 12 : newMonth;
             newYear = newYear > 2022 ? 2022 : newYear;
 
-            plotMapa(yearsData, newYear, newMonth, divId);
-            document.querySelector(".chart_legend").innerHTML = `
-                <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${newYear}</p>
-                <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
-            `;
+            // document.querySelector(".chart_legend").innerHTML = `
+            //     <p class="chart_desc">Denuncias por criaderos de mosquitos | Año ${newYear}</p>
+            //     <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+            // `;
+            
+            var chart_desc = document.querySelector(divId).parentElement.querySelector(".chart_desc")
+
+            var prev_text = chart_desc.innerHTML.split(" | ")[0]
+
+            chart_desc.innerHTML = `${prev_text} | Año ${newYear}`
 
             setBubble(this, bubble);
+
+            plotMapa(yearsData, newYear, newMonth, divId);
             
         }
         document.querySelector("#chart_mapa_extra").appendChild(bubble);

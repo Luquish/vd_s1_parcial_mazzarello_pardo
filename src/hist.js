@@ -83,10 +83,10 @@ function plotBars(bes, year2022, divId) {
                 Plot.ruleY([0])
             ],
             x: {
-                label: 'Año',
+                label: 'Cantidad de denuncias (negativo) y casos de dengue (positivo)',
             },
             y: {
-                label: 'Cantidad de denuncias',
+                label: 'Barrio',
                 labelOffset: 150,
             },
             color: {

@@ -27,7 +27,38 @@ function main() {
 
   plotMapa(yearsData, 2022, 12, "#chart_mapa");
 
-  plotLines(yearsData, 2022, "#chart_lines");
+  plotBars(bes_345, data_2021, "#chart_1");
 
-  plotBars(bes_345, data_2022, "#chart_3");
+  // plotLines(yearsData, 2022, "#chart_lines");
+
+  plotHorizontal(data_2021, "#chart_3");
+
+  const navbar = document.querySelector("#navbar");
+
+  function hideNav() {
+    //document.getElementById("navbar").style.display = "none";
+    navbar.backgroundColor = "red";
+  }
+
+  function showNav() {
+    navbar.display = "block";
+  }
+
+  const nota = document.querySelector("#nota1");
+
+  // check if nota intersects with navbar
+  window.addEventListener("scroll", (event) => {
+
+
+    // log scroll position
+
+    const notaRect = nota.getBoundingClientRect();
+    const navbarRect = navbar.getBoundingClientRect();
+
+    if (notaRect.bottom < navbarRect.top) {
+      showNav();
+    } else {
+      hideNav();
+    }
+  });
 }
