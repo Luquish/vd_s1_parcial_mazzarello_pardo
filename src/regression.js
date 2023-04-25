@@ -80,11 +80,11 @@ function plotRegression(yearsData, divId) {
     var lastDate = periodosArray[periodosArray.length - 1].x
 
     var date = new Date(lastDate)
-    date.setMonth(date.getMonth() + 24)
+    date.setMonth(date.getMonth() + 21)
 
     var first_and_last = [[periodosArray[0].x, reg_func(0)], [date, reg_func(periodosArray.length + 24)]]
 
-    let chart = Plot.plot({
+    let chart = addTooltips(Plot.plot({
         grid: true,
         marks : [
             Plot.dot(periodosArray, {
@@ -92,13 +92,15 @@ function plotRegression(yearsData, divId) {
                 y: d => d.y,
                 stroke: "black",
                 fill: "black",
-                r: 2
+                r: 2,
+                title: d => `${d.y} denuncias - ${d.x.toLocaleDateString()}`,
             }),
             Plot.line(first_and_last, {
                 x: d => d[0],
                 y: d => d[1],
                 stroke: "red",
-                strokeWidth: 2
+                strokeWidth: 2,
+                title: d => `${reg.equation[0].toFixed(2)}x + ${reg.equation[1].toFixed(2)}`,
             })
         ],
         x: {
@@ -109,7 +111,7 @@ function plotRegression(yearsData, divId) {
             label: "Denuncias",
             nice: true
         }
-    })
+    }));
 
     d3.select(divId).append(() => chart)
 

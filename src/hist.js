@@ -57,8 +57,6 @@ function plotBars(bes, year2022, divId) {
             return b.cantidad - a.cantidad;
         });
 
-        // sort plot by barrio with most cases
-
         let chart = addTooltips(Plot.plot({
             marks: [
                 Plot.barX(bes_2022, 
@@ -73,10 +71,13 @@ function plotBars(bes, year2022, divId) {
             ],
             x: {
                 label: 'Cantidad de casos de dengue',
+                
             },
             y: {
                 label: 'Barrio',
                 labelOffset: 150,
+                // sort bes_2022 by cantidad
+                domain: bes_2022.map(d => d.barrio),
             },
             color: {
                 type: 'categorical',
