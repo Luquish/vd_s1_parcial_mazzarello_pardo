@@ -108,7 +108,8 @@ function plotRegression(yearsData, divId) {
         },
         y: {
             label: "Denuncias",
-            nice: true
+            nice: true,
+            domain: [0, 150]
         }
     }));
 
