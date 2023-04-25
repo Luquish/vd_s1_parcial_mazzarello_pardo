@@ -100,7 +100,6 @@ function plotRegression(yearsData, divId) {
                 y: d => d[1],
                 stroke: "red",
                 strokeWidth: 2,
-                title: d => `${reg.equation[0].toFixed(2)}x + ${reg.equation[1].toFixed(2)}`,
             })
         ],
         x: {

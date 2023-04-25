@@ -27,6 +27,9 @@ function main() {
 
   plotMapa(yearsData, 2022, 12, "#chart_mapa");
 
+  // Animate the map by changing the year on the slider
+
+
   plotBars(bes_345, data_2021, "#chart_1");
 
   // plotLines(yearsData, 2022, "#chart_lines");
