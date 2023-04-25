@@ -52,27 +52,44 @@ function plotBars(bes, year2022, divId) {
 
         console.log({bes_2022})
 
+        //find common keys between both objects
 
-        bes_2022.sort(function (a, b) {
+        // var commonKeys = barrios_2022.map(function (item) {
+        //     return item.barrio;
+        // }).filter(function (value, index, self) {
+        //     return self.indexOf(value) === index;
+        // }).filter(function (value) {
+        //     return bes_2022.map(function (item) {
+        //         return item.barrio;
+        //     }).indexOf(value) >= 0;
+        // });
+
+        // console.log({commonKeys})
+
+        // var newData = []
+
+        // data
+
+        // sort data by sum of denuncias and dengue
+
+        data.sort(function (a, b) {
             return b.cantidad - a.cantidad;
         });
 
-        // sort plot by barrio with most cases
-
         let chart = addTooltips(Plot.plot({
             marks: [
-                Plot.barX(bes_2022, 
+                Plot.barX(data, 
                     {
                         y: 'barrio',
-                        x: d => d.cantidad,
+                        x: d => d.cantidad * (d.tipo === "denuncia" ? -1 : d.tipo === "dengue" ? 1 : 0),
                         fill: 'barrio',
-                        title: d => `${d.cantidad} casos de dengue`,
+                        title: d => `${d.barrio} \n ${d.cantidad}` + (d.tipo === "denuncia" ? " denuncias de criaderos" : d.tipo === "dengue" ? " casos de dengue" : ""),
                     }
                 ),
                 Plot.ruleY([0])
             ],
             x: {
-                label: 'Cantidad de casos de dengue',
+                label: 'Cantidad de denuncias (negativo) y casos de dengue (positivo)',
             },
             y: {
                 label: 'Barrio',

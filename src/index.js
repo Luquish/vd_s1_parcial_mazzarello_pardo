@@ -33,6 +33,10 @@ function main() {
 
   plotHorizontal(data_2021, "#chart_3");
 
+  console.log("plotting scatter");
+  plotRegression(yearsData, "#chart_regression");
+  console.log("plotting scatter done");
+
   const navbar = document.querySelector("#navbar");
 
   function hideNav() {

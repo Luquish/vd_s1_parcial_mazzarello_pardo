@@ -26,6 +26,8 @@
     <script src="./src/hist.js"></script>
     <script src="./src/circular.js"></script>
     <script src="./src/horizontal.js"></script>
+    <script src="./src/regression.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
   </head>
   <body>
     <main>
@@ -118,7 +120,7 @@
 
         <!-- Circular bar plot 2022 -->
         <div id="chart_circ_container" class="chart_container">
-          <h2 class="center subtitle">
+          <h2 class="center subtitle bolder_title">
             Las denuncias al SUACI de CABA
           </h2>
           <div id="chart_circ" class="chart">
@@ -148,7 +150,7 @@
 
         <!-- MAPA 2018-2022 -->
         <div id="chart_mapa_container" class="chart_container">
-          <h2 class="center subtitle">
+          <h2 class="center subtitle bolder_title">
             Mapa de denuncias por criaderos de mosquitos de CABA
           </h2>
             <div id="chart_mapa" class="chart"></div> 
@@ -170,7 +172,7 @@
         </p>
         <!-- HISTOGRAMA BOLETIN Nº345 -->
         <div id="chart_1_container" class="chart_container">
-          <h2 class="center subtitle">
+          <h2 class="center subtitle bolder_title">
             Como los criaderos se relacionan con los casos de dengue
           </h2>
           <div id="chart_1" class="chart"></div>
@@ -191,7 +193,7 @@
 
         <!-- LINE GRAPH 2018-2018 -->
         <!-- <div id="chart_2_container" class="chart_container">
-          <h2 class="center subtitle">
+          <h2 class="center subtitle bolder_title">
 
           </h2>
           <div id="chart_lines" class="chart"></div>
@@ -211,7 +213,7 @@
         <!-- Canales por denuncia -->
         
         <div id="chart_3_container" class="chart_container">
-          <h2 class="center subtitle">
+          <h2 class="center subtitle bolder_title">
             Como la población interactua con el SUACI
           </h2>
           <div id="chart_3" class="chart"></div>
@@ -240,11 +242,23 @@
 
           Además, para mantenerse informado sobre las medidas de prevención y las acciones que se están realizando para controlar la presencia de mosquitos en la Ciudad de Buenos Aires, puede consultar <a href="https://buenosaires.gob.ar/salud">la página web del Ministerio de Salud de la Ciudad Autónoma de Buenos Aires</a>, donde se brinda información actualizada sobre el tema.
           
+          <div id="chart_regression_container" class="chart_container">
+            <h2 class="center subtitle bolder_title">
+              Proyección de denuncias por criaderos de mosquitos
+            </h2>
+            <div id="chart_regression" class="chart"></div>
+            <div id="chart_regression_extra" style="width:100%"></div>
+            <span id="chart_regression_legend" class="chart_legend">
+              <p class="chart_desc">Canales utilizados por denuncias por criaderos de mosquitos | Año 2021</p>
+              <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+            </span>
+          </div>
+
           <br><br>
           
-          <span class="by">Por: <b>Luca Mazzarello</b> e <b>Ignacio Pardo</b></span>
         </p>
 
+        <span class="by">Por: <b>Luca Mazzarello</b> e <b>Ignacio Pardo</b></span>
 
 
         <div id="temas">
