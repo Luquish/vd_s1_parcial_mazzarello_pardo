@@ -26,6 +26,8 @@
     <script src="./src/hist.js"></script>
     <script src="./src/circular.js"></script>
     <script src="./src/horizontal.js"></script>
+    <script src="./src/regression.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
   </head>
   <body>
     <main>
@@ -115,9 +117,100 @@
         significativamente en los últimos meses. Según los datos recopilados del Sistema Único de Asistencia Ciudadana (SUACI), se han registrado un número récord de solicitudes de
         intervención en distintas zonas de la ciudad.
         </p>
+        
+        <!-- MAPA 2018-2022 -->
+        <div id="chart_mapa_container" class="chart_container">
+          <h2 class="center subtitle bolder_title">
+            Mapa de denuncias por criaderos de mosquitos de CABA
+          </h2>
+            <div id="chart_mapa" class="chart"></div> 
+            <div id="chart_mapa_extra" style="width:100%"></div>
+            <span id="chart_mapa_legend" class="chart_legend">
+                <p class="chart_desc">Denuncias acumuladas mes a mes de criaderos de mosquitos por barrio | Año 2022</p>
+                <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+            </span>
+        </div>
+
+        <p>
+          Entre los barrios más afectados en los ultimos años podemos destacar a Palermo, Caballito o Monte Castro, donde los vecinos han reportado una gran cantidad de mosquitos y otros insectos en sus hogares y áreas comunes. En algunos casos, los residentes han señalado que la situación se ha vuelto insoportable, ya que los mosquitos les impiden dormir y disfrutar de sus espacios al aire libre.
+        </p>
+        
+        <!-- Linear Regression -->
+        <div id="chart_regression_container" class="chart_container">
+          <h2 class="center subtitle bolder_title">
+            Proyección 2023/2024 de denuncias por criaderos
+          </h2>
+          <div id="chart_regression" class="chart"></div>
+          <div id="chart_regression_extra" style="width:100%"></div>
+          <span id="chart_regression_legend" class="chart_legend">
+            <p class="chart_desc">Proyección 2023/2024 de denuncias por criaderos - Datos años 2018 a 2022</p>
+            <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+          </span>
+        </div>
+        
+        <p>
+          Según las autoridades locales, el aumento en la presencia de mosquitos se debe en gran parte a las condiciones
+          climáticas y ambientales, así como a la falta de mantenimiento en algunos espacios públicos y privados. Para abordar
+          este problema, se han implementado medidas como la fumigación en las áreas más afectadas y la limpieza y desinfección
+          de
+          áreas verdes y otros espacios públicos.
+        
+          <br><br>
+        
+          No obstante, algunos expertos han señalado que también es necesario involucrar a la comunidad en la prevención y
+          control
+          de la proliferación de mosquitos. Esto incluye medidas como evitar el acumulamiento de agua en recipientes al aire
+          libre, utilizar repelentes y mosquiteros en las viviendas y adoptar prácticas de higiene adecuadas para evitar la
+          acumulación de basura y otros residuos.
+        
+        </p>
+        
+        <h2 class="left subtitle">Como el SUACI combate la epidemia del dengue</h2>
+        <p>
+          Las manifestaciones por la presencia de mosquitos, primordialmente se basa en el riesgo de propagación de enfermedades transmitidas por estos insectos, como el dengue.
+          El siguiente gráfico muestra la cantidad de casos de dengue por barrio en el año 2022. 
+        </p>
+        
+        
+        <!-- HISTOGRAMA BOLETIN Nº345 -->
+        <div id="chart_1_container" class="chart_container">
+          <h2 class="center subtitle bolder_title">
+            Como los criaderos se relacionan con los casos de dengue
+          </h2>
+          <div id="chart_1" class="chart"></div>
+          <div id="chart_1_extra" style="width:100%"></div>
+        </div>
+
+        <span
+        style="width: 50%"
+        id="chart_1_legend" class="chart_legend">
+          <p class="chart_desc">Casos de dengue por barrio - Año 2022</p>
+          <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+        </span>
+        
+        <p>
+          El dengue es una enfermedad viral transmitida por mosquitos del género Aedes, que se reproduce en aguas estancadas y cálidas. Los síntomas incluyen fiebre alta, dolor de cabeza, dolores musculares y articulares, y en casos graves puede llevar a complicaciones como hemorragias y shock.
+          
+          <br><br>
+          
+          Según los datos del Ministerio de Salud de la Nación, entre la semana 27 del 2022 y la semana 13 del 2023 se registraron en total 2.789 casos de dengue en la ciudad de Buenos Aires.
+        </p>
+        
+        <h2 class="left subtitle">No solo la linea 147: Los canales del SUACI</h2>
+        
+        <p>
+          La presencia de mosquitos en la Ciudad de Buenos Aires ha aumentado en los últimos meses, lo que ha generado una
+          creciente preocupación entre los residentes. El aumento de mosquitos se debe en gran parte a las condiciones climáticas
+          y ambientales, así como a la falta de mantenimiento en algunos espacios públicos y privados. Las autoridades han
+          implementado medidas como la fumigación en las áreas más afectadas y la limpieza y desinfección de áreas verdes y otros
+          espacios públicos.
+        </p>
 
         <!-- Circular bar plot 2022 -->
         <div id="chart_circ_container" class="chart_container">
+          <h2 class="center subtitle bolder_title">
+            Las denuncias al SUACI de CABA
+          </h2>
           <div id="chart_circ" class="chart">
             
           </div>
@@ -127,92 +220,32 @@
             <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
           </span>
         </div>
-
-        <p>
-        Según las autoridades locales, el aumento en la presencia de mosquitos se debe en gran parte a las condiciones
-        climáticas y ambientales, así como a la falta de mantenimiento en algunos espacios públicos y privados. Para abordar
-        este problema, se han implementado medidas como la fumigación en las áreas más afectadas y la limpieza y desinfección de
-        áreas verdes y otros espacios públicos.
-
-        <br><br>
-
-        No obstante, algunos expertos han señalado que también es necesario involucrar a la comunidad en la prevención y control
-        de la proliferación de mosquitos. Esto incluye medidas como evitar el acumulamiento de agua en recipientes al aire
-        libre, utilizar repelentes y mosquiteros en las viviendas y adoptar prácticas de higiene adecuadas para evitar la
-        acumulación de basura y otros residuos.
-
-        </p>
-
-        <!-- MAPA 2018-2022 -->
-        <div id="chart_mapa_container" class="chart_container">
-            <div id="chart_mapa" class="chart"></div> 
-            <div id="chart_mapa_extra" style="width:100%"></div>
-            <span id="chart_mapa_legend" class="chart_legend">
-                <p class="chart_desc">Denuncias acumuladas mes a mes de criaderos de mosquitos por barrio | Año 2022</p>
-                <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
-            </span>
-        </div>
         
         <p>
-            Entre los barrios más afectados en los ultimos años podemos destacar a Palermo, Caballito o Monte Castro, donde los vecinos han reportado una gran cantidad de mosquitos y otros insectos en sus hogares y áreas comunes. En algunos casos, los residentes han señalado que la situación se ha vuelto insoportable, ya que los mosquitos les impiden dormir y disfrutar de sus espacios al aire libre.
-        </p>
-
-        <h2 class="left subtitle">Como el SUACI combate la epidemia del dengue</h2>
-        <p>
-          Las manifestaciones por la presencia de mosquitos, primordialmente se basa en el riesgo de propagación de enfermedades transmitidas por estos insectos, como el dengue.
-          El siguiente gráfico muestra la cantidad de denuncias por criaderos de mosquitos contra casos de dengue por barrio, en el año 2022. 
-        </p>
-        <!-- HISTOGRAMA BOLETIN Nº345 -->
-        <div id="chart_1_container" class="chart_container">
-          <div id="chart_1" class="chart"></div>
-          <div id="chart_1_extra" style="width:100%"></div>
-          <span id="chart_1_legend" class="chart_legend">
-            <p class="chart_desc">Denuncias por criaderos de mosquitos (año 2021) contra casos de dengue por barrio (año 2022)</p>
-            <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
-          </span>
-        </div>
-        
-        <p>
-            El dengue es una enfermedad viral transmitida por mosquitos del género Aedes, que se reproduce en aguas estancadas y cálidas. Los síntomas incluyen fiebre alta, dolor de cabeza, dolores musculares y articulares, y en casos graves puede llevar a complicaciones como hemorragias y shock.
-
-            <br><br>
-
-            Según los datos del Ministerio de Salud de la Nación, entre la semana 27 del 2022 y la semana 13 del 2023 se registraron en total 2.789 casos de dengue en la ciudad de Buenos Aires. En el mismo período en el año 2021, se recibieron 1.060 denuncias por criaderos de mosquitos en el sistema SUACI. Esto significa que, en promedio, se recibieron 2 denuncias por criadero de mosquitos por cada 5 casos de dengue registrado en la ciudad.
-        </p>
-
-        <!-- LINE GRAPH 2018-2018 -->
-        <!-- <div id="chart_2_container" class="chart_container">
-          <div id="chart_lines" class="chart"></div>
-          <div id="chart_2_extra" style="width:100%"></div>
-          <span id="chart_2_legend" class="chart_legend">
-            <p class="chart_desc">Denuncias por criaderos de mosquitos | Año 2022</p>
-            <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
-          </span>
-        </div> -->
-
-        <h2 class="left subtitle">No solo la linea 147: Los canales del SUACI</h2>
-        
-        <p>
-          La 147 no es el único medio por el cual los vecinos pueden denunciar la presencia de mosquitos en sus barrios. El SUACI también permite realizar denuncias a travez de distintos canales. El siguiente gráfico muestra la cantidad de denuncias por criaderos de mosquitos realizadas a travez de cada canal en el año 2021.
+          La 147 no es el único medio por el cual los vecinos pueden denunciar la presencia de mosquitos en sus barrios. El SUACI
+          también permite realizar denuncias a travez de distintos canales. El siguiente gráfico muestra la cantidad de denuncias
+          por criaderos de mosquitos realizadas a travez de cada canal en el año 2021.
         </p>
 
         <!-- Canales por denuncia -->
-        
         <div id="chart_3_container" class="chart_container">
+          <h2 class="center subtitle bolder_title">
+            Como la población interactua con el SUACI
+          </h2>
           <div id="chart_3" class="chart"></div>
           <div id="chart_3_extra" style="width:100%"></div>
-          <span id="chart_3_legend" class="chart_legend">
-            <p class="chart_desc">Canales utilizados por denuncias por criaderos de mosquitos | Año 2021</p>
-            <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
-          </span>
         </div>
+
+        <span 
+        style="width: 50%"
+        id="chart_3_legend" class="chart_legend">
+          <p class="chart_desc">Canales utilizados por denuncias por criaderos de mosquitos | Año 2021</p>
+          <p class="chart_src"><b>Fuente: </b> Buenos Aires Data - Sistema Único de Atención Ciudadana</p>
+        </span>
         
         <p>
           El canal más utilizado para realizar denuncias por criaderos de mosquitos es la plataforma web del SUACI con el 47.55% de las denuncias. Le sigue la línea telefónica 147 con el 39.15% de las denuncias, el call center con 5.47% y <a href="https://buenosaires.gob.ar/boti">Boti</a> con 4.72%.
 
-          <br><br>
-          La presencia de mosquitos en la Ciudad de Buenos Aires ha aumentado en los últimos meses, lo que ha generado una creciente preocupación entre los residentes. El aumento de mosquitos se debe en gran parte a las condiciones climáticas y ambientales, así como a la falta de mantenimiento en algunos espacios públicos y privados. Las autoridades han implementado medidas como la fumigación en las áreas más afectadas y la limpieza y desinfección de áreas verdes y otros espacios públicos. 
-          
           <br><br>
           
           Sin embargo, es necesario involucrar a la comunidad en la prevención y control de la proliferación de mosquitos, lo que incluye medidas como evitar el acumulamiento de agua en recipientes al aire libre, utilizar repelentes y mosquiteros en las viviendas y adoptar prácticas de higiene adecuadas. La presencia de mosquitos también ha aumentado el riesgo de propagación de enfermedades transmitidas por estos insectos, como el dengue. Por lo tanto, es importante que los residentes informen sobre la presencia de mosquitos en su barrio o realicen consultas o reclamos relacionados con el tema, a través del Sistema Único de Atención Ciudadana (SUACI), que ofrece diferentes canales de comunicación.
@@ -225,11 +258,12 @@
 
           Además, para mantenerse informado sobre las medidas de prevención y las acciones que se están realizando para controlar la presencia de mosquitos en la Ciudad de Buenos Aires, puede consultar <a href="https://buenosaires.gob.ar/salud">la página web del Ministerio de Salud de la Ciudad Autónoma de Buenos Aires</a>, donde se brinda información actualizada sobre el tema.
           
+
           <br><br>
           
-          <span class="by">Por: <b>Luca Mazzarello</b> e <b>Ignacio Pardo</b></span>
         </p>
 
+        <span class="by">Por: <b>Luca Mazzarello</b> e <b>Ignacio Pardo</b></span>
 
 
         <div id="temas">
@@ -279,7 +313,6 @@
                         <img class="icon" src="assets/icons/gh.svg" alt="GitHub" />
                     </a>
                 </div>
-                <!-- <a href="https://observablehq.com/">Observable</a> -->
             </div>
         </div>
     </div>

@@ -66,12 +66,20 @@ function plotHorizontal(dataPromise, divId) {
     });
   
     // Guardamos el svg generado en la variable chart
-    let chart = Plot.plot({
+    let chart = addTooltips(Plot.plot({
       width: 600,
       height: 400,
       grid: true,
       marks: [
-        Plot.barX(data, Plot.groupY({x: "count"}, {y: "canal", sort: {y: "x", reverse: true}})),
+        Plot.barX(data, 
+          Plot.groupY(
+            {x: "count"}, 
+            {y: "canal", 
+            sort: {y: "x", reverse: true},
+              fill: "#FF8D3A",
+              title: d => `${d.count}`,
+          }
+          )),
       ],
       x: {
         label: 'Cantidad de denuncias',
@@ -80,7 +88,7 @@ function plotHorizontal(dataPromise, divId) {
         label: 'Canales',
         labelOffset: 100,
       },
-    });
+    }));
 
     // add id to chart
 
