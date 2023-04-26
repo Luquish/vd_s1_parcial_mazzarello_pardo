@@ -1,4 +1,4 @@
-# # 🚀 Parcial Sistema Único de Atención Ciudadana - [Link al repo](https://github.com/Luquish/vd_s1_parcial_mazzarello_pardo)
+# 🦟 Parcial Sistema Único de Atención Ciudadana - [Link al repo](https://github.com/Luquish/vd_s1_parcial_mazzarello_pardo)
 
 ## [Visualización de Datos - Licenciatura Tecnología Digital - UTDT](https://www.utdt.edu/ver_contenido.php?id_contenido=19866&id_item_menu=31534)
 
